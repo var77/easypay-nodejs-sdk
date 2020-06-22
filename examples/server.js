@@ -7,9 +7,10 @@ const serverConfigs = {
     basePath: '/easyPay'
 };
 
-const onCheck = (payload, ip) => {
+const onCheck = (payload, productId, ip) => {
     console.log('Check passed return product info');
     console.log('Payload is::', payload);
+    console.log('ProductId is::', productId);
     console.log('Ip is::', ip);
 
     // get your order info here
@@ -29,9 +30,10 @@ const onCheck = (payload, ip) => {
     }
 }
 
-const onPayment = (payload, ip) => {
+const onPayment = (payload, productId, ip) => {
     console.log('Payment check passed return order info');
     console.log('Payload is::', payload);
+    console.log('ProductId is::', productId);
     console.log('Ip is::', ip);
 
     // process your order here

@@ -15,7 +15,7 @@ function GetServer (configs, onCheck, onPayment) {
 
     const _checkHandler = (req, res) => {
         try {
-            const response = SDK.checkHandler(req.body, getIp(req));
+            const response = SDK.checkHandler(req.body, req.params.productId, getIp(req));
             res.json(response);
         } catch (err) {
             console.error(err);
@@ -25,7 +25,7 @@ function GetServer (configs, onCheck, onPayment) {
 
     const _paymentHandler = (req, res) => {
         try {
-            const response = SDK.paymentHandler(req.body, getIp(req));
+            const response = SDK.paymentHandler(req.body, req.params.productId, getIp(req));
             res.json(response);
         } catch (err) {
             console.error(err);
@@ -51,6 +51,8 @@ function GetServer (configs, onCheck, onPayment) {
 
         app.listen(port, host, () => {
             console.log(`🚀 EasyPay API Started on http://${host}:${port}`);
+            console.log(`🚀 Check url is http://${host}:${port}${basePath}/:productId/check`);
+            console.log(`🚀 Payment url is http://${host}:${port}${basePath}/:productId/payment`);
             cb();
         });
     }
