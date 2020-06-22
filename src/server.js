@@ -11,8 +11,6 @@ function GetServer (configs, onCheck, onPayment) {
 
     const SDK = GetEasyPaySDK({ token, ips }, onCheck, onPayment);
 
-    const app = express();
-
     const _checkHandler = (req, res) => {
         try {
             const response = SDK.checkHandler(req.body, req.params.productId, getIp(req));
@@ -42,6 +40,8 @@ function GetServer (configs, onCheck, onPayment) {
     }
 
     const _start = (cb = () => null) => {
+        const app = express();
+
         app.use(bodyParser.json());
         app.use(cors());
 
