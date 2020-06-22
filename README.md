@@ -10,8 +10,6 @@
 ```
 const { GetServer } = require('easypay-nodejs-sdk');
 
-const EasyPayServer = GetServer(serverConfigs, onCheck, onPayment);
-
 const serverConfigs = {
     token: 'mySecretToken123!', // your easyPay token
     ips: null, // if set to null the ip check won't be done // default is [easyPayIps]
@@ -51,6 +49,8 @@ const onPayment = (payload, productId, ip) => {
         ]
     }
 }
+
+const EasyPayServer = GetServer(serverConfigs, onCheck, onPayment);
 
 EasyPayServer.start();
 ```
