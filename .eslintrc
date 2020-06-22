@@ -1,0 +1,38 @@
+{
+    "parser": "babel-eslint",
+    "extends": "standard",
+    "rules": {
+      "semi": "off",
+      "curly": "off",
+      "no-mixed-spaces-and-tabs": "off",
+      "no-unused-vars": "off",
+      "no-tabs": "off",
+      "array-bracket-spacing": "off",
+      "no-return-await": "off",
+      "block-spacing": "error",
+      "space-before-function-paren": "error",
+      "no-whitespace-before-property": "off",
+      "arrow-body-style": "off",
+      "arrow-spacing": "error",
+      "prefer-arrow-callback": "warn",
+      "no-else-return": "error",
+      "no-shadow-restricted-names": "error",
+      "eol-last": "off",
+      "indent": ["error", 4, { "SwitchCase": 1 }],
+      "no-return-assign": "off",
+      "prefer-promise-reject-errors": "warn",
+      "eqeqeq": "warn",
+      "no-throw-literal": "off",
+      "object-curly-spacing": ["error", "always"],
+      "no-trailing-spaces": "off",
+      "padded-blocks": "off",
+      "prefer-const": ["error", {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": true
+      }],
+      "no-template-curly-in-string": "off"
+    },
+    "env": {
+        "mocha": true
+    }
+  }
