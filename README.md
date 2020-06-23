@@ -55,6 +55,13 @@ const EasyPayServer = GetServer(serverConfigs, onCheck, onPayment);
 EasyPayServer.start();
 ```
 
+#### If you want to use only the router without server
+
+```
+const router = EasyPayServer.getRouter();
+myApp.use(router);
+```
+
 ### Use as standalone SDK
 
 ```
