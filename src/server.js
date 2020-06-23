@@ -13,7 +13,7 @@ function GetServer (configs, onCheck, onPayment) {
 
     const _checkHandler = (req, res) => {
         try {
-            const response = SDK.checkHandler(req.body, req.params.productId, getIp(req));
+            const response = await SDK.checkHandler(req.body, req.params.productId, getIp(req));
             res.json(response);
         } catch (err) {
             console.error(err);
@@ -23,7 +23,7 @@ function GetServer (configs, onCheck, onPayment) {
 
     const _paymentHandler = (req, res) => {
         try {
-            const response = SDK.paymentHandler(req.body, req.params.productId, getIp(req));
+            const response = await SDK.paymentHandler(req.body, req.params.productId, getIp(req));
             res.json(response);
         } catch (err) {
             console.error(err);

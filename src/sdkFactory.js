@@ -20,9 +20,9 @@ function EasyPaySDKFactory (configs = {}, onCheck = nop, onPayment = nop) {
             throw invalidChecksumError(payload.Checksum);
     }
 
-    const checkHandler = (payload, productId, ip) => {
+    const checkHandler = async (payload, productId, ip) => {
         authorizeRequest(payload, ip, 'check');
-        const { message = 'Գործողությունը թույլատրված է։', properties = [] } = onCheck(payload, productId, ip);
+        const { message = 'Գործողությունը թույլատրված է։', properties = [] } = await onCheck(payload, productId, ip);
 
         return {
             ResponseMessage: message,
@@ -32,9 +32,9 @@ function EasyPaySDKFactory (configs = {}, onCheck = nop, onPayment = nop) {
         };
     }
     
-    const paymentHandler = (payload, productId, ip) => {
+    const paymentHandler = async (payload, productId, ip) => {
         authorizeRequest(payload, ip, 'payment');
-        const { message = 'Ընդունված է։', properties = [] } = onPayment(payload, productId, ip);
+        const { message = 'Ընդունված է։', properties = [] } = await onPayment(payload, productId, ip);
 
         return {
             ResponseMessage: message,

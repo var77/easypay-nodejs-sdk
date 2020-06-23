@@ -18,7 +18,7 @@ const serverConfigs = {
     basePath: '/easyPay' // base path for the requests default is /
 };
 
-const onCheck = (payload, productId, ip) => {
+const onCheck = async (payload, productId, ip) => {
     // get your order info here
 
     return {
@@ -36,7 +36,7 @@ const onCheck = (payload, productId, ip) => {
     }
 }
 
-const onPayment = (payload, productId, ip) => {
+const onPayment = async (payload, productId, ip) => {
     // process your order here
 
     return {
@@ -72,7 +72,7 @@ const SDKConfigs = {
     ips: null
 };
 
-const onCheck = (payload) => {
+const onCheck = async (payload) => {
     // get your order info here
 
     return {
@@ -90,7 +90,7 @@ const onCheck = (payload) => {
     }
 }
 
-const onPayment = (payload) => {
+const onPayment = async (payload) => {
     // process your order here
 
     return {
