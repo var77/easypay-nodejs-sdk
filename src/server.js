@@ -11,7 +11,7 @@ function GetServer (configs, onCheck, onPayment) {
 
     const SDK = GetEasyPaySDK({ token, ips }, onCheck, onPayment);
 
-    const _checkHandler = (req, res) => {
+    const _checkHandler = async (req, res) => {
         try {
             const response = await SDK.checkHandler(req.body, req.params.productId, getIp(req));
             res.json(response);
@@ -21,7 +21,7 @@ function GetServer (configs, onCheck, onPayment) {
         }
     }
 
-    const _paymentHandler = (req, res) => {
+    const _paymentHandler = async (req, res) => {
         try {
             const response = await SDK.paymentHandler(req.body, req.params.productId, getIp(req));
             res.json(response);
